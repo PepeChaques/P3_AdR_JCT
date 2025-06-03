@@ -122,7 +122,21 @@ Te recomendamos empezar por el modelo de 3 dimensiones, que es más sencillo, pa
 
 ## Resulatados de los experimentos 
 
-Una vez completados todos los TODOs y comprobado el correcto funcionamiento
+Una vez completados todos los TODOs y comprobado el correcto funcionamiento del programa se ha procedido a realizar los experimentos solicitados. 
+
+### Caso Base
+
+Para este caso simplemente se han dejado los valores de los errores por defecto. Se han ejecutado todos los modelos ayudado del bag circle_path. 
+
+**ekf_3d_state_estimation**
+![3D](imagenes/Figure_3d_default.png)
+
+**ekf_7d_state_estimation**
+![7D](imagenes/Figure_7d_default.png)
+
+**ekf_8d_state_estimation**
+![8D](imagenes/Figure_8d_default.png)
+
 
 ## Evaluación
 Los alumnos deberán:
