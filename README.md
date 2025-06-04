@@ -129,31 +129,76 @@ Una vez completados todos los TODOs y comprobado el correcto funcionamiento del 
 Para este caso simplemente se han dejado los valores de los errores por defecto. Se han ejecutado todos los modelos ayudado del bag circle_path. 
 
 **ekf_3d_state_estimation**
+
+
 ![3D](imagenes/Figure_3d_default.png)
 
 **ekf_7d_state_estimation**
+
+
 ![7D](imagenes/Figure_7d_default.png)
 
 **ekf_8d_state_estimation**
+
+
 ![8D](imagenes/Figure_8d_default.png)
 
 
+
+### Caso Alta Incertidumbre en la Observación
+
+Para este caso se han multiplicado los errores establecidos en la variable **obs_noise_std**. Se han ejecutado todos los modelos ayudado del bag circle_path. 
+
+**ekf_3d_state_estimation**
+
+
+![3D](imagenes/Figure_3d_obs.png)
+
+**ekf_7d_state_estimation**
+
+
+![7D](imagenes/Figure_7d_obs.png)
+
+**ekf_8d_state_estimation**
+
+
+![8D](imagenes/Figure_8d_obs.png)
+
+Como se puede comprobar de forma evidente al dar mucha incertidumbre a la observación el filtro depende únicamente del modelo físico del robot, el cual claramente empeora las estimaciones dadas por el filtro en comparación al modelo base.
+
+
+### Caso Alta Incertidumbre en el Modelo de Movimiento
+
+Para este caso se han multiplicado por 1000 los valores de ruido establecidos en las variables **proc_noise_std**. Se han ejecutado todos los modelos ayudado del bag circle_path. 
+
+**ekf_3d_state_estimation**
+
+
+![3D](imagenes/Figure_3d_proc.png)
+
+
+
+**ekf_7d_state_estimation**
+
+
+![7D](imagenes/Figure_7d_proc.png)
+
+
+
+**ekf_8d_state_estimation**
+
+
+![8D](imagenes/Figure_8d_proc.png)
+
+
+Los resultado claramente muestran como el alto ruido en el modelo de movimiento ha llevado al filtro a usar únicamente los sensores como referencia, haciendo que las gráficas de la observación y el filtro estén solapadas. 
+
+
+
+
 ## Evaluación
-Los alumnos deberán:
 
-- Completar los TODOs indicados
-
-- Realizar estimaciones con los tres modelos propuestos
-
-- Ejecutar la simulación y/o los rosbags y comparar visualmente el rendimiento
-
-- Analizar tres escenarios con diferentes configuraciones de ruido:
-
-    - Caso base (valores por defecto)
-    - Alta incertidumbre en la observación
-    - Alta incertidumbre en el modelo de movimiento
-
-- Entregar un README o memoria breve justificando los resultados y diferencias
+Una vez visualizados los experimentos se puede comprobar como las mediciones de los sensores claramente son los mejores inputs para el filtro, empeorando este al introducir el modelo de movimiento, aunque cuantas más dimensiones aumenta el filtro mejor estimación dá al incluir más partes del modelo de movimiento.
 
 ## ANEXOS
 ### Estructura del nodo de estimación: kf_node.py
